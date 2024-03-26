@@ -42,20 +42,8 @@ function App() {
 
   return (
     <div>
-      {listOfPersons.map((person)=>{
-        return(
-          <div>
-            <h1>Firstname:{person.firstname}</h1>
-            <h1>Lastname:{person.lastname}</h1>
-            <p>Age:{person.age}</p>
-            <p>City:{person.city_place}</p>
-            <p>Email:{person.email}</p>
-            <p>Occupation:{person.job}</p>
-            <p>Hobbies:{person.hobbies}</p>
-          </div>
-        )
-      })}
-      <div>
+      <div className="top-0 left-0 right-0 fixed text-center">
+        <h1 className="text-4xl text-white text-center font-bold bg-gray-800 p-4">PERSONDATABASE</h1>
         <input type="text" placeholder="Firstname: " onChange={(e)=>{setFirstname(e.target.value)}}/>
         <input type="text" placeholder="Lastname: " onChange={(e)=>{setLastname(e.target.value)}}/>
         <input type="number" placeholder="Age: " onChange={(e)=>{setAge(e.target.value)}}/>
@@ -63,8 +51,27 @@ function App() {
         <input type="email" placeholder="Email: " onChange={(e)=>{setEmail(e.target.value)}}/>
         <input type="text" placeholder="Occupation: " onChange={(e)=>{setJob(e.target.value)}}/>
         <input type="text" placeholder="Hobbies: " onChange={(e)=>{setHobbies(e.target.value)}}/>
-        <button onClick={createPerson}>Create New Person</button>
+        <div className="text-center mt-4">
+          <button className="bg-rose-500 text-white rounded-xl hover:bg-rose-700 hover:cursor p-1" onClick={createPerson}>Create New Person</button>
+          
+        </div>
       </div>
+      {listOfPersons.map((person)=>{
+        return(
+          <div className="text-sm border-2 mt-36">
+            <div className="grid grid-cols-7 gap-2">
+              <h1><b>Firstname:</b>{person.firstname}</h1>
+              <h1><b>Lastname:</b>{person.lastname}</h1>
+              <p><b>Age:</b>{person.age}</p>
+              <p><b>City:</b>{person.city_place}</p>
+              <p><b>Email:</b>{person.email}</p>
+              <p><b>Occupation:</b>{person.job}</p>
+              <p><b>Hobbies:</b>{person.hobbies}</p>
+            </div>
+          </div>
+          
+        )
+      })}
     </div>
     
   );
