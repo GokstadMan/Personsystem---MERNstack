@@ -6,6 +6,8 @@ const PeopleModel = require("./models/People");
 const app = express();
 app.use(express.json());
 
+app.use(cors());
+
 mongoose.connect("mongodb+srv://boehman:0f5el2GP8LwERECK@cluster0.xvfzcbo.mongodb.net/project1?retryWrites=true&w=majority");
 
 const port = 8000;
